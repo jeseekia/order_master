@@ -1,6 +1,3 @@
-<%= erb :header %>
-
-
 <h1>
   Restaurant: <%= @restaurant['name'] %>
 </h1>
@@ -9,5 +6,9 @@
   Phone Number: <%= @restaurant['phone_number'] %>
 </h2>
 
-
-<%= erb :footer %>
+<h3> 
+  Menu :
+  <% @menu_item.each do |item| %>
+		puts item['name']
+	end
+</h3>

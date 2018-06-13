@@ -35,6 +35,7 @@ get '/restaurants/:id' do
   @restaurant = Restaurant.find(params[:id])
   puts @restaurant
   erb :restaurant
+  @menu_items = Menu_item.where('id' : @restaurant['id'])
 end
 
 post '/restaurants/new' do
