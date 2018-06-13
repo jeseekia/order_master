@@ -1,15 +1,15 @@
 <%= erb :header %> 
-<form action="#">
+<form action="/restaurants/new" method="post">
 <div class="row">
     <div class="input-field col s6">
-      <input value="McDonalds..." id="name" type="text" class="validate">
+      <input value="McDonalds..." id="name" name="name" type="text" class="validate">
       <label class="active" for="name"> Name </label>	  
     </div>
   </div>
   
 <div class="row">
     <div class="input-field col s6">
-      <input value="555-855-0014..." id="phone_number" type="text" class="validate">
+      <input value="555-855-0014..." id="phone_number" name="phone_number" type="text" class="validate">
       <label class="active" for="phone_number"> Phone Number </label>	  
     </div>
  </div>
@@ -18,7 +18,7 @@
      <div class="file-field input-field">
       <div class="btn">
         <span>Photo</span>
-        <input type="file">
+        <input type="file" id="photo_name" name="photo_name">
       </div>
       <div class="file-path-wrapper">
         <input class="file-path validate" type="text">
