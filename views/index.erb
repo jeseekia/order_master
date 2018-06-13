@@ -1,33 +1,21 @@
-<%= erb :header %>
 <h1 class="center-align">Restaurants</h1>
-<!-- <ul>
-  <% @restaurants.map do |restaurant| %>
-    <li>
-      <a href="/restaurants/<%= restaurant['id']%>">
-        <%= restaurant['name'] %>: <%= restaurant['phone_number'] %>
-      </a>
-    </li>
-  <% end %>
-</ul> -->
-
 <div class="row">
   <% @restaurants.map do |restaurant| %>
-   <div class="col s12 m6">
-     <!-- <div class="card teal lighten-2"> -->
-     <div class="card purple lighten-3">
+    <div class="col s4 m6">
+      <div class="card medium purple lighten-3">
         <div class="card-image">
-          <img src="/restaurant_photos/restaurant['photo_name']">
+          <img class="responsive-img" src="/restaurant_photos/<%= restaurant['photo_name'] %>">
           <span class="card-title"><%= restaurant['name'] %></span>
-		 </div>
-         <p>
-           <%= restaurant['name'] %>: <%= restaurant['phone_number'] %>
-         </p>
-       </div>
-       <div class="card-action">
-         <a href="/restaurants/<%= restaurant['id']%>">View <%= restaurant['name'] %></a>
-       </div>
-     </div>
-   </div>
-   <% end %>
- </div>
-<%= erb :footer %>
+        </div>
+        <div class="card-content">
+          <p>
+          <%= restaurant['name'] %>: <%= restaurant['phone_number'] %>
+          </p>
+        </div>
+        <div class="card-action">
+          <a href="/restaurants/<%= restaurant['id']%>">View <%= restaurant['name'] %></a>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
