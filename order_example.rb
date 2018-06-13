@@ -20,7 +20,7 @@ require_relative 'models/restaurant'
 #   end
 #
 #   "<h1>Restaurants</h1><ul>#{restaurants.join(',')}</ul>"
-# end
+# endw
 
 get '/' do
   @restaurants = Restaurant.all
@@ -31,4 +31,11 @@ get '/restaurants/:id' do
   @restaurant = Restaurant.find(params[:id])
   puts @restaurant
   erb :restaurant
+end
+
+post '/restaurants/new' do 
+  filename = "./photos/" + params[:file]
+  File.open("./public/#{@filename}", 'wb') do |f|
+    f.write(file.read)
+  end
 end
