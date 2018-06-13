@@ -49,5 +49,6 @@ post '/restaurants/new' do
   end
 
   @restaurant = Restaurant.new(name: params[:name], phone_number: params[:phone_number], photo_name: params[:photo_name][:filename])
+  @restaurant.save
   erb :restaurant
 end
