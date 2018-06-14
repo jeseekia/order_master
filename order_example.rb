@@ -2,6 +2,7 @@
 require 'sinatra'
 require_relative 'config/database'
 require_relative 'models/restaurant'
+require_relative 'models/menu_item'
 
 get '/' do
   @restaurants = Restaurant.all
@@ -14,9 +15,9 @@ end
 
 get '/restaurants/:id' do
   @restaurant = Restaurant.find(params[:id])
+  @menu_items = Menu_item.where('restaurant_id': @restaurant['id'])
   puts @restaurant
   erb :restaurant
-  @menu_items = Menu_Item.where('restaurant_id': @restaurant['id'])
 end
 
 post '/restaurants/new' do
