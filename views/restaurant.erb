@@ -8,8 +8,30 @@
 
 <h3> 
   Menu :
-  <% @menu_items.each do |item| %>
-		<%= item['name'] %>
+  <ul class="collection">
+	<% @menu_items.each do |item| %>
+	  <li class="collection-item"> <%= item['name'] %> </li>
 	<% end %>
+  </ul>
 </h3>
+
+<form action="/restaurants/<%= @restaurant['id']%>" method="post">
+    <button class="btn waves-effect waves-light" type="submit" name="action"> 
+	  Add Item
+    </button>
+    <div class="input-field col s6">
+      <input value="Pretzels" id="name" name="name" type="text" class="validate">
+      <label class="active" for="name"> Name </label>
+    </div>
+	<div class="input-field col s6">
+      <input value="100" id="price" name="price" type="number" class="validate">
+      <label class="active" for="name"> Price </label>
+    </div>
+ </form>
+ 
+<a href ="/restaurants/edit/<%=@restaurant['id']%>"> 
+	<button>Edit Restaurant Information</button>
+</a>
+
+
 
